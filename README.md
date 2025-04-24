@@ -69,4 +69,3 @@ user-management-service/
 ```bash
 mvn test
 ```
-
