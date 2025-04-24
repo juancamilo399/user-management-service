@@ -1,3 +1,4 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=juancamilo399_user-management-service)](https://sonarcloud.io/summary/new_code?id=juancamilo399_user-management-service)
 
 # User Management Service
 
