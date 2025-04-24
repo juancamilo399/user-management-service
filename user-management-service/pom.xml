@@ -1,42 +1,92 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.eci.arcn.user</groupId>
-  <artifactId>user-management-service</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>user-management-service</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <java.version>17</java.version>
-  </properties>
-  <dependencies>
-      <!-- Lombok para menos boilerplate -->
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <version>1.18.28</version>
-          <scope>provided</scope>
-      </dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-      <!-- Spring Boot Starter Web -->
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
+    <modelVersion>4.0.0</modelVersion>
 
-      <!-- Spring Boot Starter Test -->
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-test</artifactId>
-          <scope>test</scope>
-      </dependency>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.4</version> <!-- o la última versión estable -->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-      <!-- Validation -->
-      <dependency>
-          <groupId>jakarta.validation</groupId>
-          <artifactId>jakarta.validation-api</artifactId>
-          <version>3.0.2</version>
-      </dependency>
-  </dependencies>
+    <groupId>com.eci.arcn.user</groupId>
+    <artifactId>user-management-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>user-management-service</name>
+    <description>Microservicio de gestión de usuarios - Proyecto ARCN</description>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- Spring Boot Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Validaciones con Jakarta -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Spring Boot para Testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Cucumber BDD -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.14.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.14.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit Vintage -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Para correr las pruebas BDD -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <includes>
+                        <include>**/TestRunner.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
