@@ -23,6 +23,13 @@ jobs:
       - name: Ejecutar tests (BDD + TDD)
         run: mvn -f user-management-service/pom.xml clean test
 
+      - name: Análisis estático de código con SonarCloud (vía Maven)
+        run: mvn -f user-management-service/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          -Dsonar.projectKey=SebasBarrera_user-management-service \
+          -Dsonar.organization=sebasbarrera-github \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
       - name: Empaquetar aplicación
         run: mvn -f user-management-service/pom.xml package
 
@@ -35,20 +42,5 @@ jobs:
       - name: Construir imagen Docker
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/user-service:latest ./user-management-service
 
-
       - name: Publicar imagen en DockerHub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/user-service:latest
-
-      - name: Análisis estático de código con SonarCloud 
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: ./user-management-service
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_SCANNER_OPTS: >
-            -Dsonar.projectKey=SebasBarrera_user-management-service
-            -Dsonar.organization=sebasbarrera-github
-            -Dsonar.host.url=https://sonarcloud.io
-
-
-
