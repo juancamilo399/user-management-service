@@ -45,5 +45,9 @@ jobs:
           projectBaseDir: ./user-management-service
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_SCANNER_OPTS: "-Dsonar.projectKey=SebasBarrera_user-management-service -Dsonar.organization=sebasbarrera-github -Dsonar.host.url=https://sonarcloud.io"
+          SONAR_SCANNER_OPTS: >
+            -Dsonar.projectKey=SebasBarrera_user-management-service
+            -Dsonar.organization=sebasbarrera-github
+            -Dsonar.host.url=https://sonarcloud.io
+
 
