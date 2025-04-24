@@ -43,7 +43,7 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=juancamilo399_user-management-service
+        run: mvn -f user-management-service/pom.xml -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=juancamilo399_user-management-service
 
       - name: Package app
         run: mvn -f user-management-service/pom.xml package
