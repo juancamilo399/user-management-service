@@ -69,5 +69,3 @@ user-management-service/
 ```bash
 mvn test
 ```
-
-## 🧪 Análisis de calidad con Sonar
