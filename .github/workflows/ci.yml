@@ -39,7 +39,7 @@ jobs:
       - name: Publicar imagen en DockerHub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/user-service:latest
 
-      - name: Análisis estático de código con SonarCloud
+      - name: Análisis estático de código con SonarCloud 
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: ./user-management-service
