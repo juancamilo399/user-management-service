@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RegistroUsuarioSteps {
 
-    private String correo;
-    private String contraseña;
     private boolean cuentaCreada;
     private String mensajeSistema;
+    private String correo;
+    private String contraseña;
     private boolean notificacionEnviada;
     private boolean direccionValida;
 
