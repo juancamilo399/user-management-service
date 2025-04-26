@@ -30,6 +30,20 @@ user-management-service/
 └── README.md
 ```
 
+```
+user-management-service/
+├── application/
+│   ├── command/
+│   └── service/
+├── domain/
+│   └── model/
+│   └── repository/
+├── infrastructure
+│   └── persistence/
+│   └── controller/
+│   └── dto/
+```
+
 ## 🚀 Cómo ejecutar
 
 ### Requisitos previos
