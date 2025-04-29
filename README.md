@@ -4,6 +4,8 @@
 
 Este microservicio forma parte de la arquitectura de la plataforma de comercio electrónico. Su objetivo principal es gestionar los usuarios, incluyendo la creación, autenticación, y control de acceso.
 
+[Presentacion Adjunta](https://docs.google.com/presentation/d/1WV0BBeXKxW-t6f3Th6wfOrK2lHQgGgEy0Z75Mssjg2w/edit?usp=sharing)
+
 ## 📦 Tecnologías
 
 - Java 17
